@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/xsd', 'XMLController@xsd')->name('api.xsd');
+Route::post('/xsd', 'XmlController@xsd')->name('api.xsd');
+Route::post('/rng', 'XmlController@rng')->name('api.xsd');

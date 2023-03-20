@@ -1,0 +1,49 @@
+<element name="pokemon" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <element name="species">
+        <text />
+    </element>
+    <element name="dex">
+        <data type="integer" />
+    </element>
+    <element name="types">
+        <oneOrMore>
+            <element name="type">
+                <text />
+            </element>
+        </oneOrMore>
+    </element>
+    <element name="abilities">
+        <element name="ability">
+            <text/>
+        </element>
+        <element name="dream">
+            <text/>
+        </element>
+    </element>
+    <element name="baseStats">
+        <element name="HP">
+            <data type="integer" />
+        </element>
+        <element name="ATK">
+            <data type="integer" />
+        </element>
+        <element name="DEF">
+            <data type="integer" />
+        </element>
+        <element name="SPD">
+            <data type="integer" />
+        </element>
+        <element name="SATK">
+            <data type="integer" />
+        </element>
+        <element name="SDEF">
+            <data type="integer" />
+        </element>
+    </element>
+    <element name="experience">
+        <data type="integer" />
+    </element>
+    <element name="rateType">
+        <text/>
+    </element>
+</element>
