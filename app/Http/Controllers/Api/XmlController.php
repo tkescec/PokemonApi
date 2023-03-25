@@ -21,8 +21,10 @@ class XmlController extends Controller
         try {
             $path = $request->file('pokemon');
 
-            $validator = new DOMValidator(resource_path('xml/pokemon.xsd'));
-            $validated = $validator->validateWithXsd($path);
+            if ($path) {
+                $validator = new DOMValidator(resource_path('xml/pokemon.xsd'));
+                $validated = $validator->validateWithXsd($path);
+            }
 
             if ($validated) {
                 return response()->json(['message' => 'XML is valid']);
@@ -45,8 +47,10 @@ class XmlController extends Controller
         try {
             $path = $request->file('pokemon');
 
-            $validator = new DOMValidator(resource_path('xml/pokemon.rng'));
-            $validated = $validator->validateWithRng($path);
+            if ($path) {
+                $validator = new DOMValidator(resource_path('xml/pokemon.rng'));
+                $validated = $validator->validateWithRng($path);
+            }
 
             if ($validated) {
                 return response()->json(['message' => 'XML is valid']);
