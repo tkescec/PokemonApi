@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-
+use Exception;
 use App\Http\Controllers\Controller;
 use App\Services\DOMValidator;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -13,7 +12,7 @@ class XmlController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api');
     }
 
     public function xsd(Request $request)
@@ -27,9 +26,13 @@ class XmlController extends Controller
             }
 
             if ($validated) {
-                return response()->json(['message' => 'XML is valid']);
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'XML is valid'
+                ]);
             } else {
                 return response()->json([
+                    'status' => 'error',
                     'message' => 'XML is not valid',
                     'error' => implode($validator->displayErrors())
                 ], 404);
@@ -37,6 +40,7 @@ class XmlController extends Controller
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json([
+                'status' => 'error',
                 'message' => 'Internal server error',
             ], 500);
         }
@@ -53,9 +57,13 @@ class XmlController extends Controller
             }
 
             if ($validated) {
-                return response()->json(['message' => 'XML is valid']);
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'XML is valid'
+                ]);
             } else {
                 return response()->json([
+                    'status' => 'error',
                     'message' => 'XML is not valid',
                     'error' => implode($validator->displayErrors())
                 ], 404);
@@ -63,6 +71,7 @@ class XmlController extends Controller
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json([
+                'status' => 'error',
                 'message' => 'Internal server error',
             ], 500);
         }
