@@ -25,18 +25,18 @@ class XmlController extends Controller
                 $validated = $validator->validateWithXsd($path);
             }
 
-            if ($validated) {
-                return response()->json([
-                    'status' => 'success',
-                    'message' => 'XML is valid'
-                ]);
-            } else {
+            if (!$validated) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'XML is not valid',
                     'error' => implode($validator->displayErrors())
-                ], 404);
+                ], 422);
             }
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'XML is valid'
+            ]);
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json([
@@ -56,18 +56,18 @@ class XmlController extends Controller
                 $validated = $validator->validateWithRng($path);
             }
 
-            if ($validated) {
-                return response()->json([
-                    'status' => 'success',
-                    'message' => 'XML is valid'
-                ]);
-            } else {
+            if (!$validated) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'XML is not valid',
                     'error' => implode($validator->displayErrors())
-                ], 404);
+                ], 422);
             }
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'XML is valid'
+            ]);
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json([

@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::controller(SoapController::class)->group(function () {
+    Route::get('pokemon/search', 'search');
+});
+
 Route::controller(XmlController::class)->group(function () {
     Route::post('xsd', 'xsd');
     Route::post('rng', 'rng');
 });
+
 Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'loginError')->name('login');
     Route::post('login', 'login');
