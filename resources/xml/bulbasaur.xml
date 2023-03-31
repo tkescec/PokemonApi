@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pokemon>
+    <species>BULBASAUR</species>
+    <dex>4</dex>
+    <types>
+        <type>GRASS</type>
+        <type>POISON</type>
+    </types>
+    <abilities>
+        <ability>OVERGROW</ability>
+        <dream>CHLOROPHYLL</dream>
+    </abilities>
+    <baseStats>
+        <HP>45</HP>
+        <ATK>49</ATK>
+        <DEF>49</DEF>
+        <SPD>45</SPD>
+        <SATK>45</SATK>
+        <SDEF>65</SDEF>
+    </baseStats>
+    <experience>64</experience>
+    <rateType>MEDIUM SLOW</rateType>
+</pokemon>
