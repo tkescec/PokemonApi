@@ -13,9 +13,11 @@
         </oneOrMore>
     </element>
     <element name="abilities">
-        <element name="ability">
-            <text/>
-        </element>
+        <oneOrMore>
+            <element name="ability">
+                <text/>
+            </element>
+        </oneOrMore>
         <element name="dream">
             <text/>
         </element>

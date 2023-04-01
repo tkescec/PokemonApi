@@ -21,7 +21,9 @@
                 <xs:element name="abilities">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ability" type="xs:string"/>
+                            <xs:sequence>
+                                <xs:element name="ability" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+                            </xs:sequence>
                             <xs:element name="dream" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
